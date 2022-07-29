@@ -20,7 +20,7 @@ class Login extends React.Component {
 
   validateButton = () => {
     const { email, password } = this.state;
-    const minLength = 3;
+    const minLength = 6;
     if (password.length >= minLength && email.includes('@') && email.includes('.com')) {
       this.setState({ buttonDisabled: false });
     } else {
