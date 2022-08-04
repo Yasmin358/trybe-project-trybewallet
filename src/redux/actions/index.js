@@ -4,11 +4,13 @@ export const USER_EMAIL = 'USER_EMAIL';
 export const GET_CURRENCIES = 'GET_CURRENCIES';
 export const REQUEST_API = 'REQUEST_API';
 export const GET_EXPENSES = 'GET_EXPENSES';
+export const DELETE_ITEM = 'DELETE_ITEM';
 
 export const saveEmail = (email) => ({ type: USER_EMAIL, email });
 export const requestApi = () => ({ type: REQUEST_API });
 export const getCurrencies = (currencies) => ({ type: GET_CURRENCIES, currencies });
 export const getExpenses = (expenses) => ({ type: GET_EXPENSES, expenses });
+export const deleteItem = (item) => ({ type: DELETE_ITEM, payload: item });
 
 export function fetchApi() {
   return (dispatch) => {
