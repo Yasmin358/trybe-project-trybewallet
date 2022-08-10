@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { deleteItem } from '../redux/actions';
+import './Table.css';
 
 class Table extends Component {
   deleteButton = (id) => {
-    const { removeItem, expenses } = this.props;
-    console.log(id);
+    const { removeItem } = this.props;
     removeItem(id);
-    console.log(expenses);
   }
 
   render() {

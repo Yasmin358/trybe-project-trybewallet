@@ -1,0 +1,31 @@
+table {
+  display: inline-flex;
+  justify-content: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+table thead , table tbody {
+  width: 100%;
+}
+
+table thead tr {
+  background-color: cornflowerblue;
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+table tbody tr {
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+table thead th , table tbody td {
+  align-items: center;
+  display: inline-flex;
+  padding: 10px;
+}

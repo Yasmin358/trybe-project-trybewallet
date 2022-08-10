@@ -8,7 +8,7 @@ class WalletForm extends React.Component {
     value: '',
     currency: 'USD',
     method: 'Dinheiro',
-    tag: '',
+    tag: 'Alimentação',
     description: '',
   }
 
@@ -69,6 +69,7 @@ class WalletForm extends React.Component {
         </label>
 
         <label htmlFor="method">
+          Metodo:
           <select
             id="method"
             data-testid="method-input"
@@ -82,6 +83,7 @@ class WalletForm extends React.Component {
         </label>
 
         <label htmlFor="tag">
+          Categoria:
           <select
             id="tag"
             data-testid="tag-input"
@@ -97,6 +99,7 @@ class WalletForm extends React.Component {
         </label>
 
         <label htmlFor="description">
+          Descrição:
           <input
             type="text"
             data-testid="description-input"
