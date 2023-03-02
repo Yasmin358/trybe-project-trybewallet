@@ -1,4 +1,6 @@
-body {
-  align-items: flex-start;
-  display: block;
+.wallet-page {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
 }

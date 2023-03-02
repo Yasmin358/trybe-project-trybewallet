@@ -1,6 +1,5 @@
-body {
+.page-login {
   align-items: center;
-  background-color: rgb(219, 209, 240);
   display: flex;
   height: 768px;
   justify-content: center;

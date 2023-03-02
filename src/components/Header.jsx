@@ -21,10 +21,16 @@ class Header extends React.Component {
     const { email } = this.props;
     return (
       <header>
-        <p data-testid="email-field">
-          Email:
-          { email }
-        </p>
+        <div>
+          <h2 style={ { color: '#550beb' } }>Trybe</h2>
+          <h2>Wallet</h2>
+        </div>
+        <div>
+          <p data-testid="email-field">
+            Email:
+            { email }
+          </p>
+        </div>
         <div>
           <p>
             Despesa Total:
