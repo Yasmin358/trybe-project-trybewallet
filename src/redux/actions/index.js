@@ -5,12 +5,18 @@ export const GET_CURRENCIES = 'GET_CURRENCIES';
 export const REQUEST_API = 'REQUEST_API';
 export const GET_EXPENSES = 'GET_EXPENSES';
 export const DELETE_ITEM = 'DELETE_ITEM';
+export const GET_ITEM_BY_ID = 'GET_ITEM_BY_ID';
+export const EDIT_ITEM = 'EDIT_ITEM';
+export const EDIT_DISABLED = 'EDIT_DISABLED';
 
 export const saveEmail = (email) => ({ type: USER_EMAIL, email });
 export const requestApi = () => ({ type: REQUEST_API });
 export const getCurrencies = (currencies) => ({ type: GET_CURRENCIES, currencies });
 export const getExpenses = (expenses) => ({ type: GET_EXPENSES, expenses });
-export const deleteItem = (item) => ({ type: DELETE_ITEM, payload: item });
+export const deleteItem = (id) => ({ type: DELETE_ITEM, payload: id });
+export const getItemById = (id) => ({ type: GET_ITEM_BY_ID, payload: id });
+export const editItem = (item) => ({ type: EDIT_ITEM, payload: item });
+export const editDisabled = (status) => ({ type: EDIT_DISABLED, payload: status });
 
 export function fetchApi() {
   return (dispatch) => {

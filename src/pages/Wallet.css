@@ -1,6 +1,10 @@
 .wallet-page {
   align-items: center;
+  background-color: white;
+  border-radius: 22px;
   display: flex;
   flex-direction: column;
-  margin: 5px;
+  height: 100vh;
+  margin: 10px;
+  max-width: 100%;
 }

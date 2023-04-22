@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchApi, fetchExpenses } from '../redux/actions';
+import { fetchApi, fetchExpenses, editItem, editDisabled } from '../redux/actions';
 import './WalletForm.css';
 
 class WalletForm extends React.Component {
@@ -9,8 +9,9 @@ class WalletForm extends React.Component {
     value: '',
     currency: 'USD',
     method: 'Dinheiro',
-    tag: 'Alimentação',
+    tag: '',
     description: '',
+    edit: false,
   }
 
   componentDidMount() {
@@ -20,6 +21,19 @@ class WalletForm extends React.Component {
 
   handleChange = ({ target }) => {
     const { id, value } = target;
+    const { editEnabled, editabled, item } = this.props;
+    console.log(item);
+    if (editEnabled) {
+      this.setState({
+        value: item.value,
+        currency: item.currency,
+        method: item.method,
+        tag: item.tag,
+        description: item.description,
+        edit: true,
+      });
+      editabled(false);
+    }
 
     this.setState({
       [id]: value,
@@ -28,22 +42,32 @@ class WalletForm extends React.Component {
 
   submitForm = (event) => {
     event.preventDefault();
-    const { value, currency, method, tag, description } = this.state;
-    const { expenses, getExpenses } = this.props;
-    const data = { expenses, value, currency, method, tag, description };
-    getExpenses(data);
+    const { value, currency, method, tag, description, edit } = this.state;
+    const { expenses, getExpenses, editItemById, item } = this.props;
+    const data = { value, currency, method, tag, description };
+    console.log(data);
+    if (edit) {
+      const { exchangeRates, id } = item;
+      const newData = { id, ...data, exchangeRates };
+      console.log(newData);
+      editItemById(newData);
+    } else {
+      getExpenses({ ...data, expenses });
+    }
     this.setState({
       value: '',
       currency: 'USD',
       method: 'Dinheiro',
-      tag: '',
+      tag: 'Alimentação',
       description: '',
+      edit: false,
     });
   }
 
   render() {
-    const { currencies } = this.props;
-    const { value, currency, method, tag, description } = this.state;
+    const { currencies, editEnabled, item } = this.props;
+    const { value, currency, method, tag, description, edit } = this.state;
+
     return (
       <form className="Form">
         <label htmlFor="value">
@@ -53,7 +77,7 @@ class WalletForm extends React.Component {
             data-testid="value-input"
             id="value"
             onChange={ this.handleChange }
-            value={ value }
+            value={ editEnabled ? item.value : value }
           />
         </label>
 
@@ -63,7 +87,7 @@ class WalletForm extends React.Component {
             id="currency"
             data-testid="currency-input"
             onChange={ this.handleChange }
-            value={ currency }
+            value={ editEnabled ? item.currency : currency }
           >
             {currencies.map((moeda) => <option key={ moeda }>{moeda}</option>)}
           </select>
@@ -75,7 +99,7 @@ class WalletForm extends React.Component {
             id="method"
             data-testid="method-input"
             onChange={ this.handleChange }
-            value={ method }
+            value={ editEnabled ? item.method : method }
           >
             <option>Dinheiro</option>
             <option>Cartão de crédito</option>
@@ -89,7 +113,7 @@ class WalletForm extends React.Component {
             id="tag"
             data-testid="tag-input"
             onChange={ this.handleChange }
-            value={ tag }
+            value={ editEnabled ? item.tag : tag }
           >
             <option>Alimentação</option>
             <option>Lazer</option>
@@ -106,12 +130,12 @@ class WalletForm extends React.Component {
             data-testid="description-input"
             id="description"
             onChange={ this.handleChange }
-            value={ description }
+            value={ editEnabled ? item.description : description }
           />
         </label>
         <div>
           <button type="button" onClick={ this.submitForm }>
-            Adicionar despesa
+            { editEnabled || edit ? 'Editar despesa' : 'Adicionar despesa' }
           </button>
         </div>
       </form>
@@ -125,16 +149,32 @@ WalletForm.propTypes = {
   expenses: PropTypes.arrayOf(PropTypes.any).isRequired,
   getCurrencies: PropTypes.func.isRequired,
   getExpenses: PropTypes.func.isRequired,
+  item: PropTypes.shape({
+    id: PropTypes.number,
+    value: PropTypes.string,
+    currency: PropTypes.string,
+    method: PropTypes.string,
+    tag: PropTypes.string,
+    description: PropTypes.string,
+    exchangeRates: PropTypes.objectOf(PropTypes.any),
+  }).isRequired,
+  editEnabled: PropTypes.bool.isRequired,
+  editItemById: PropTypes.func.isRequired,
+  editabled: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
   getCurrencies: () => dispatch(fetchApi()),
   getExpenses: (data) => dispatch(fetchExpenses(data)),
+  editItemById: (item) => dispatch(editItem(item)),
+  editabled: (status) => dispatch(editDisabled(status)),
 });
 
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
   expenses: state.wallet.expenses,
+  item: state.wallet.item,
+  editEnabled: state.wallet.editEnabled,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WalletForm);

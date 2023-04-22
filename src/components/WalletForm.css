@@ -1,6 +1,6 @@
 .Form {
   align-items: center;
-  background-color: #550beb;
+  background-image: linear-gradient(#6f00ff, #5d00c1, indigo);
   display: inline-flex;
   height: 45px;
   justify-content: center;
@@ -11,7 +11,8 @@
 
 .Form label {
   color: white;
-  font-size: 15px;
+  font-family: Bree serif, serif;
+  font-size: 18px;
   font-weight: 600;
   margin: 0 5px;
 }
@@ -26,14 +27,23 @@
 }
 
 .Form button {
-  background-color: goldenrod;
-  border: 3px solid darkgoldenrod;
-  border-radius: 20px;
+  background-color: #64c100;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 0 0 #378200;
   color: white;
+  cursor: pointer;
+  font-family: Bree serif, serif;
   font-size: 14px;
   font-weight: 600;
   height: 34px;
+  margin-bottom: 4px;
   outline: none;
   padding: 0 16px;
+  text-shadow: 0 3px 4px rgba(0, 0, 0, 0.25);
+}
 
+.Form button:hover {
+  background-color: #7fe000;
+  box-shadow: 0 4px 0 0 #378200;
 }

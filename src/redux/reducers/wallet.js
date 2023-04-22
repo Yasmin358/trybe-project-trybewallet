@@ -2,6 +2,9 @@
 const INITIAL_STATE = {
   currencies: [],
   expenses: [],
+  id: 0,
+  item: {},
+  editEnabled: false,
 };
 
 const wallet = (state = INITIAL_STATE, action) => {
@@ -21,6 +24,30 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       expenses: state.expenses.filter((item) => item.id !== action.payload),
+    };
+
+  case 'GET_ITEM_BY_ID':
+    return {
+      ...state,
+      id: action.payload,
+      item: state.expenses.find((item) => item.id === action.payload),
+      editEnabled: true,
+    };
+
+  case 'EDIT_ITEM':
+    return {
+      ...state,
+      expenses: state.expenses.map((item) => {
+        if (item.id === state.id) {
+          item = action.payload;
+        }
+        return item;
+      }),
+    };
+  case 'EDIT_DISABLED':
+    return {
+      ...state,
+      editEnabled: action.payload,
     };
   default:
     return state;

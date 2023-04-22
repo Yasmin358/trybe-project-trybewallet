@@ -7,10 +7,12 @@ class Header extends React.Component {
   totalExpense = () => {
     const { expenses } = this.props;
     let total = 0;
-
+    console.log(expenses);
     expenses.forEach((element) => {
       const { currency } = element;
+      console.log(currency);
       const value = element.exchangeRates[currency].ask;
+      console.log(value);
       total += element.value * value;
     });
 
@@ -22,8 +24,8 @@ class Header extends React.Component {
     return (
       <header>
         <div>
-          <h2 style={ { color: '#550beb' } }>Trybe</h2>
-          <h2>Wallet</h2>
+          <h2 className="TitleOne">Trybe</h2>
+          <h2 className="TitleTwo">Wallet</h2>
         </div>
         <div>
           <p data-testid="email-field">
