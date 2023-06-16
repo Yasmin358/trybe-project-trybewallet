@@ -42,34 +42,51 @@ class Login extends React.Component {
     return (
       <div className="page-login">
         <section className="container">
-          <img src={ Logo } alt="Logo" id="imageLogo" />
+          <div className="Logo">
+            <img src={ Logo } alt="Logo" id="imageLogo" />
+            <div className="Title-Container">
+              <h2 className="TitleOne">Trybe</h2>
+              <h2 className="TitleTwo">Wallet</h2>
+            </div>
+          </div>
           <form>
-            <input
-              type="email"
-              data-testid="email-input"
-              placeholder="Digite seu email aqui"
-              name="email"
-              value={ email }
-              onChange={ this.handleChange }
-            />
-            <input
-              type="password"
-              data-testid="password-input"
-              onChange={ this.handleChange }
-              placeholder="Digite sua senha aqui"
-              name="password"
-              value={ password }
-            />
-            <button
-              type="button"
-              disabled={ buttonDisabled }
-              onClick={ this.submitLogin }
-            >
-              Entrar
-            </button>
+            <label htmlFor="email-input" className="email-label">
+              Email
+              <input
+                type="email"
+                data-testid="email-input"
+                name="email"
+                value={ email }
+                onChange={ this.handleChange }
+              />
+            </label>
+            <label htmlFor="password-input" className="password-label">
+              Password
+              <input
+                type="password"
+                data-testid="password-input"
+                onChange={ this.handleChange }
+                name="password"
+                value={ password }
+              />
+            </label>
+            <div className="button-container">
+              <button
+                type="button"
+                disabled="true"
+              >
+                Cadastre-se
+              </button>
+              <button
+                type="button"
+                disabled={ buttonDisabled }
+                onClick={ this.submitLogin }
+              >
+                Entrar
+              </button>
+            </div>
           </form>
         </section>
-
       </div>
 
     );

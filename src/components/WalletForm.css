@@ -1,17 +1,21 @@
+/* stylelint-disable selector-max-specificity */
 .Form {
   align-items: center;
   background-image: linear-gradient(#6f00ff, #5d00c1, indigo);
+  border-bottom-left-radius: 22px;
+  border-bottom-right-radius: 22px;
   display: inline-flex;
   height: 45px;
   justify-content: center;
   margin: 0 10px;
+  margin-bottom: 10px;
   padding: 4px 0;
-  width: 100%;
+  width: 98%;
 }
 
 .Form label {
   color: white;
-  font-family: Bree serif, serif;
+  font-family: Bitter, serif;
   font-size: 18px;
   font-weight: 600;
   margin: 0 5px;
@@ -19,11 +23,19 @@
 
 .Form label input , .Form label select {
   border: none;
-  border-radius: 11px;
+  border-radius: 10px;
+  color: #202533;
+  font-family: Bitter, serif;
   font-size: 14px;
+  font-weight: 600;
   margin: 0 5px;
   outline: none;
   padding: 5px;
+}
+
+.Form option {
+  color: #202533;
+  font-weight: 600;
 }
 
 .Form button {
@@ -33,7 +45,7 @@
   box-shadow: 0 4px 0 0 #378200;
   color: white;
   cursor: pointer;
-  font-family: Bree serif, serif;
+  font-family: Bitter, serif;
   font-size: 14px;
   font-weight: 600;
   height: 34px;
@@ -47,3 +59,8 @@
   background-color: #7fe000;
   box-shadow: 0 4px 0 0 #378200;
 }
+
+#value {
+  width: 100px;
+}
+

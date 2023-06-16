@@ -19,7 +19,6 @@
 }
 
 .container img {
-  height: 55%;
   width: 80%;
 }
 
@@ -29,36 +28,85 @@
   flex-direction: column;
 }
 
-.container form input {
-  border-radius: 22px;
+.email-label input , .password-label input {
+  border: none;
+  border-bottom: 2px solid #dde4ea;
+  color: hsla(224, 23%, 16%, 0.5);
+  cursor: text;
+  font-family: Bitter, serif;
   font-size: 16px;
-  height: 34px;
-  margin: 5px 0;
+  font-weight: 600;
+  height: 30px;
+  margin: 0;
+  margin-bottom: 10px;
   outline: none;
-  padding: 0 18px;
-  width: 220px;
+  padding: 0 15px;
+  width: 300px;
 }
 
-.container form button {
-  background-color: #b498eb;
+.email-label input:focus , .password-label input:focus {
+  border-bottom: 2px solid #6f00ff;
+}
+
+.button-container {
+  display: flex;
+}
+
+.button-container button {
   border: none;
   border-radius: 22px;
-  box-shadow: 0 6px 0 #6d5b92;
   color: white;
+  font-family: Bitter, serif;
   font-size: 16px;
   font-weight: 700;
   height: 34px;
-  margin: 5px 0;
-  margin-bottom: 15px;
+  margin: 10px 5px;
   outline: none;
   padding: 0 18px;
-  width: 260px;
+  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+  width: 165px;
 }
 
-.container form button:enabled {
-  background-color: #550beb;
-  box-shadow: 0 6px 0 #240368;
-  color: white;
+.button-container button:disabled {
+  background-color: #9470c9;
+  box-shadow: 0 6px 0 #4d3172;
+}
+
+.button-container button:enabled {
+  background-image: linear-gradient(#4700a3, #6f00ff, #8b33ff);
+  box-shadow: 0 6px 0 #4700a3;
   cursor: pointer;
+}
+
+.email-label , .password-label {
+  color: #202533;
+  display: flex;
+  flex-direction: column;
+  font-family: Bitter, serif;
+  font-weight: 600;
+}
+
+.Logo {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+}
+
+.Title-Container {
+  display: inline-flex;
+  font-family: Bitter, serif;
+  font-size: 22px;
+  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+}
+
+.TitleOne , .TitleTwo {
+  line-height: 30px;
+  margin: 5px 0;
+}
+
+.TitleOne {
+  color: #6f00ff;
 }
 

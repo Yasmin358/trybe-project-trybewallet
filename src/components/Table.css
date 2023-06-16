@@ -1,9 +1,20 @@
-table {
+.table-element {
   border-spacing: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 0 10px;
   width: 100%;
+}
+
+.table-container {
+  align-items: flex-start;
+  background-color: white;
+  border-radius: 22px;
+  display: flex;
+  height: 50%;
+  justify-content: center;
+  width: 98%;
 }
 
 table thead , table tbody {
@@ -14,12 +25,14 @@ table thead , table tbody {
 table thead tr {
   align-items: center;
   background-color: #111;
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
   color: white;
   cursor: default;
   display: flex;
-  font-family: Poppins , sans-serif;
-  font-size: 14px;
-  height: 33px;
+  font-family: Bitter, serif;
+  font-size: 16px;
+  height: 46px;
   justify-content: center;
   width: 100%;
 }
@@ -34,22 +47,25 @@ table tbody tr {
 table thead th , table tbody td {
   align-items: center;
   display: flex;
+  height: 30px;
   justify-content: center;
 }
 
 table tbody td {
+  font-family: Bitter, serif;
   font-size: 16px;
   height: 40px;
+  padding-bottom: 5px;
 }
 
 table thead th:nth-child( 1 ) {
   border-right: 2px rgba(128, 128, 128, 0.589) solid;
   justify-content: space-around;
-  width: 230px;
+  width: 220px;
 }
 
 table tbody td:nth-child( 1 ) {
-  width: 230px;
+  width: 220px;
 }
 
 table thead th:nth-child( 2 ) {
@@ -66,10 +82,12 @@ table tbody td:nth-child( 2 ) {
 
 table thead th:nth-child( 3 ) {
   border-right: 2px rgba(128, 128, 128, 0.589) solid;
+  padding: 0 5px;
   width: 180px;
 }
 
 table tbody td:nth-child( 3 ) {
+  padding: 0 5px;
   width: 180px;
 }
 
@@ -96,29 +114,32 @@ table tbody td:nth-child( 5 ) {
 
 table thead th:nth-child( 6 ) , table thead th:nth-child( 7 ) {
   border-right: 2px rgba(128, 128, 128, 0.589) solid;
+  padding: 0 5px;
   width: 140px;
 }
 
 table tbody td:nth-child( 6 ) , table tbody td:nth-child( 7 ) {
+  padding: 0 5px;
   width: 140px;
 }
 
 table thead th:nth-child( 8 ) {
   border-right: 2px rgba(128, 128, 128, 0.589) solid;
+  padding: 0 5px;
   width: 170px;
 }
 
 table tbody td:nth-child( 8 ) {
+  padding: 0 5px;
   width: 170px;
 }
 
 table tbody td:nth-child( 9 ) {
-  width: 210px;
+  width: 160px;
 }
 
 table thead th:nth-child( 9 ) {
-  padding-left: 10px;
-  width: 200px;
+  width: 150px;
 }
 
 table tbody tr:nth-child( odd ) {
@@ -131,28 +152,28 @@ table tbody tr:nth-child( even ) {
 
 table tbody button {
   border: none;
+  border-radius: 10px;
   color: white;
   cursor: pointer;
-  font-family: Bree serif, serif;
+  font-family: Bitter, serif;
   font-size: 14px;
   font-weight: 600;
   height: 70%;
-  margin-bottom: 5px;
+  margin: 0 5px;
   outline: none;
-  padding: 0 10px;
-  width: 40%;
+  padding: 0 8px;
 }
 
 .btn-delete {
   background-color: #ed1b24;
-  border-bottom-right-radius: 15px;
-  border-top-right-radius: 15px;
   box-shadow: 0 4px 0 0 #bd0f18;
 }
 
 .btn-edit {
   background-color: gold;
-  border-bottom-left-radius: 15px;
-  border-top-left-radius: 15px;
   box-shadow: 0 4px 0 0 rgb(160, 136, 1);
+}
+
+.btn-edit img , .btn-delete img {
+  margin-top: 1.5px;
 }

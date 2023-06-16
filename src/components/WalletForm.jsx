@@ -9,7 +9,7 @@ class WalletForm extends React.Component {
     value: '',
     currency: 'USD',
     method: 'Dinheiro',
-    tag: '',
+    tag: 'Alimentação',
     description: '',
     edit: false,
   }
@@ -22,7 +22,6 @@ class WalletForm extends React.Component {
   handleChange = ({ target }) => {
     const { id, value } = target;
     const { editEnabled, editabled, item } = this.props;
-    console.log(item);
     if (editEnabled) {
       this.setState({
         value: item.value,
@@ -45,11 +44,10 @@ class WalletForm extends React.Component {
     const { value, currency, method, tag, description, edit } = this.state;
     const { expenses, getExpenses, editItemById, item } = this.props;
     const data = { value, currency, method, tag, description };
-    console.log(data);
+
     if (edit) {
       const { exchangeRates, id } = item;
       const newData = { id, ...data, exchangeRates };
-      console.log(newData);
       editItemById(newData);
     } else {
       getExpenses({ ...data, expenses });
